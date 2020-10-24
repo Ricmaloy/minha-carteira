@@ -35,6 +35,11 @@ export const Container = styled.li`
         padding-left: 10px;
     }
 
+    > div span {
+        font-size: 22px;
+        font-weight: 500;
+    }
+
     > h3 {
         padding-right: 25px;
     }

@@ -2,10 +2,11 @@ import styled from 'styled-components';
 
 export const Container = styled.div``;
 
-export const Content = styled.div``;
+export const Content = styled.main``;
 
 export const Filters = styled.div`
     width: 100%;
+
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
@@ -15,6 +16,7 @@ export const Filters = styled.div`
         font-weight: 500;
         background: none;
         color: ${props => props.theme.colors.white};
+        opacity: .4;
 
         margin: 0 10px;
 
@@ -32,11 +34,14 @@ export const Filters = styled.div`
         }
 
         &-recurrent::after {
-            border-bottom: 7px solid ${props => props.theme.colors.warning};
+            border-bottom: 7px solid ${props => props.theme.colors.success};
         }
 
         &-eventual::after {
-            border-bottom: 7px solid ${props => props.theme.colors.success};
+            border-bottom: 7px solid ${props => props.theme.colors.warning};
         }
+    }
+    .tag-actived {
+            opacity: 1;
     }
 `;
