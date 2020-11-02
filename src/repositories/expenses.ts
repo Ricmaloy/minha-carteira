@@ -46,6 +46,10 @@ export default [
   {"description":"Telefone",              "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2020-07-23"},
   {"description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2020-07-23"},
   {"description":"Compras do mês",        "amount":"700.00","type":"saída","frequency":"recorrente","date":"2020-07-25"},
-  {"description":"Cafeteira",             "amount":"250.00","type":"saída","frequency":"eventual",  "date":"2020-07-26"},
-  {"description":"Pizza",                 "amount":"60.00", "type":"saída","frequency":"eventual",  "date":"2020-10-19"}
+  {"description":"Cafeteira 1/5",         "amount":"50.00", "type":"saída","frequency":"eventual",  "date":"2020-07-26"},
+  {"description":"Cafeteira 2/5",         "amount":"50.00", "type":"saída","frequency":"eventual",  "date":"2020-08-26"},
+  {"description":"Cafeteira 3/5",         "amount":"50.00", "type":"saída","frequency":"eventual",  "date":"2020-09-26"},
+  {"description":"Pizza",                 "amount":"60.00", "type":"saída","frequency":"eventual",  "date":"2020-10-19"},
+  {"description":"Cafeteira 4/5",         "amount":"50.00", "type":"saída","frequency":"eventual",  "date":"2020-11-26"},
+  {"description":"Cafeteira 5/5",         "amount":"50.00", "type":"saída","frequency":"eventual",  "date":"2020-12-26"},
 ]
