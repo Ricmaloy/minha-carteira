@@ -4,8 +4,7 @@ import { Container, Header, LogImg, MenuContainer, MenuItemLink, Title } from '.
 import { MdDashboard, MdArrowDownward, MdArrowUpward, MdExitToApp} from 'react-icons/md'
 
 
-const Aside: React.FC = () => {
-    return (
+const Aside: React.FC = () => (
         <Container>
             <Header>
                 <LogImg src={logoImg} alt="Logo minha Carteira"/>
@@ -32,6 +31,5 @@ const Aside: React.FC = () => {
             </MenuContainer>
         </Container>
     );
-}
 
 export default Aside;

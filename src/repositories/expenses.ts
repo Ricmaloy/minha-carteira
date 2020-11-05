@@ -50,6 +50,5 @@ export default [
   {"description":"Cafeteira 2/5",         "amount":"50.00", "type":"saída","frequency":"eventual",  "date":"2020-08-26"},
   {"description":"Cafeteira 3/5",         "amount":"50.00", "type":"saída","frequency":"eventual",  "date":"2020-09-26"},
   {"description":"Pizza",                 "amount":"60.00", "type":"saída","frequency":"eventual",  "date":"2020-10-19"},
-  {"description":"Cafeteira 4/5",         "amount":"50.00", "type":"saída","frequency":"eventual",  "date":"2020-11-26"},
-  {"description":"Cafeteira 5/5",         "amount":"50.00", "type":"saída","frequency":"eventual",  "date":"2020-12-26"},
+  {"description":"Cafeteira 4/5",         "amount":"50.00", "type":"saída","frequency":"eventual",  "date":"2020-12-26"},
 ]

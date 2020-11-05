@@ -10,5 +10,4 @@ export default [
   { "description": "Salário",     "amount": "2500.15", "type": "entrada", "frequency": "recorrente", "date": "2020-05-10" }, 
   { "description": "Salário",     "amount": "2500.12", "type": "entrada", "frequency": "recorrente", "date": "2020-06-10" }, 
   { "description": "Salário",     "amount": "2500.00", "type": "entrada", "frequency": "recorrente", "date": "2020-07-10" },
-  { "description": "Saldo Betway","amount": "50.00",   "type": "entrada", "frequency": "eventual",   "date": "2020-11-29" },
 ]
