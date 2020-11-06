@@ -60,17 +60,18 @@ export const Legend = styled.li<ILegendProps>`
     > div {
         background-color: ${props => props.color};
 
-        width: 40px;
-        height: 40px;
+        width: 50px;
+        height: 50px;
         border-radius: 5px;
 
-        font-size: 14px;
-        line-height: 40px;
+        font-size: 16px;
+        line-height: 50px;
         text-align: center;
     }
 
     > span {
-        margin-left: 5px;
+        margin-left: 10px;
+        font-size: 18px;
     }
 `;
 

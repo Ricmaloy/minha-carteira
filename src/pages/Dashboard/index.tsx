@@ -96,6 +96,8 @@ const Dashboard: React.FC = () => {
 
         finalBudget = totalInc - totalExp;
 
+        // console.log(recurrentQuantity, eventualQuantity);
+
         return {
             totalExp,
             totalInc,
@@ -145,6 +147,10 @@ const Dashboard: React.FC = () => {
         const percentGains = Number(((Number(totalBudget.totalInc) / total) * 100).toFixed(1));
         const percentExpenses = Number(((Number(totalBudget.totalExp) / total) * 100).toFixed(1));
 
+        // const totalFrequency = totalBudget.eventualQuantity + totalBudget.recurrentQuantity;
+        // const percentFrequencyRecurrent = Number(((Number(totalBudget.recurrentQuantity) / totalFrequency) * 100).toFixed(1));
+        // const percentFrequencyEventual = Number(((Number(totalBudget.eventualQuantity) / totalFrequency) * 100).toFixed(1));
+
         const data = [
             {
                 name: "Entradas",
@@ -160,7 +166,26 @@ const Dashboard: React.FC = () => {
             }
         ];
 
+        // const freqData = [
+        // {
+        //     name: "Recorrentes",
+        //     value: totalBudget.recurrentQuantity,
+        //     percent: percentFrequencyRecurrent ? percentFrequencyRecurrent : 0,
+        //     color: '#4960c9',
+        // },
+        // {
+        //     name: "Eventuais",
+        //     value: totalBudget.eventualQuantity,
+        //     percent: percentFrequencyEventual ? percentFrequencyEventual : 0,
+        //     color: '#4989c9',
+        // }
+        // ];
+
+        //  console.log('eventuais: ' + percentFrequencyEventual,'recorrentes: ' + percentFrequencyRecurrent); 
+
         return data;
+
+        //, totalBudget.eventualQuantity, totalBudget.recurrentQuantity
 
     }, [totalBudget.totalInc, totalBudget.totalExp]);
 
