@@ -58,7 +58,13 @@ const Dashboard: React.FC = () => {
     },[]);
 
     const totalBudget = useMemo(() => {
-        let totalExp: number = 0, totalInc: number = 0, finalBudget: number = 0, eventualQuantity = 0, recurrentQuantity = 0;
+        let totalExp: number = 0, 
+            totalInc: number = 0, 
+            finalBudget: number = 0, 
+            eventualQuantity: number = 0, 
+            recurrentQuantity: number = 0, 
+            recurrentTotal: number = 0, 
+            eventualTotal: number = 0;
 
         expenses.forEach(item => {
             const date = new Date(item.date);
@@ -69,7 +75,13 @@ const Dashboard: React.FC = () => {
                 try {
                     totalExp += Number(item.amount);
 
-                    item.frequency === 'recorrente' ? recurrentQuantity++ : eventualQuantity++;
+                    if(item.frequency === 'recorrente') {
+                        recurrentQuantity++;
+                        recurrentTotal += Number(item.amount);
+                    } else {
+                        eventualQuantity++;
+                        eventualTotal += Number(item.amount);
+                    }
 
                 } catch {
                     throw new Error('Inavalid amount! amount must be number.')
@@ -86,7 +98,13 @@ const Dashboard: React.FC = () => {
                 try {
                     totalInc += Number(item.amount);
 
-                    item.frequency === 'recorrente' ? recurrentQuantity++ : eventualQuantity++;
+                    if(item.frequency === 'recorrente') {
+                        recurrentQuantity++;
+                        recurrentTotal += Number(item.amount);
+                    } else {
+                        eventualQuantity++;
+                        eventualTotal += Number(item.amount);
+                    }
 
                 } catch {
                     throw new Error('Inavalid amount! amount must be number.')
@@ -96,14 +114,14 @@ const Dashboard: React.FC = () => {
 
         finalBudget = totalInc - totalExp;
 
-        // console.log(recurrentQuantity, eventualQuantity);
-
         return {
             totalExp,
             totalInc,
             finalBudget,
             recurrentQuantity,
             eventualQuantity,
+            recurrentTotal,
+            eventualTotal,
         }
     }, [monthSelected, yearSelected]);
 
@@ -147,11 +165,7 @@ const Dashboard: React.FC = () => {
         const percentGains = Number(((Number(totalBudget.totalInc) / total) * 100).toFixed(1));
         const percentExpenses = Number(((Number(totalBudget.totalExp) / total) * 100).toFixed(1));
 
-        // const totalFrequency = totalBudget.eventualQuantity + totalBudget.recurrentQuantity;
-        // const percentFrequencyRecurrent = Number(((Number(totalBudget.recurrentQuantity) / totalFrequency) * 100).toFixed(1));
-        // const percentFrequencyEventual = Number(((Number(totalBudget.eventualQuantity) / totalFrequency) * 100).toFixed(1));
-
-        const data = [
+        const data = [   
             {
                 name: "Entradas",
                 value: totalBudget.totalInc,
@@ -163,31 +177,37 @@ const Dashboard: React.FC = () => {
                 value: totalBudget.totalExp,
                 percent: percentExpenses ? percentExpenses : 0,
                 color: '#e44c4e',
-            }
+            }          
         ];
-
-        // const freqData = [
-        // {
-        //     name: "Recorrentes",
-        //     value: totalBudget.recurrentQuantity,
-        //     percent: percentFrequencyRecurrent ? percentFrequencyRecurrent : 0,
-        //     color: '#4960c9',
-        // },
-        // {
-        //     name: "Eventuais",
-        //     value: totalBudget.eventualQuantity,
-        //     percent: percentFrequencyEventual ? percentFrequencyEventual : 0,
-        //     color: '#4989c9',
-        // }
-        // ];
-
-        //  console.log('eventuais: ' + percentFrequencyEventual,'recorrentes: ' + percentFrequencyRecurrent); 
 
         return data;
 
-        //, totalBudget.eventualQuantity, totalBudget.recurrentQuantity
-
     }, [totalBudget.totalInc, totalBudget.totalExp]);
+
+    const relationRecurrentVsEventual = useMemo(() => {
+
+        const totalFrequency = totalBudget.eventualTotal + totalBudget.recurrentTotal;
+        const percentFrequencyRecurrent = Number(((Number(totalBudget.recurrentTotal) / totalFrequency) * 100).toFixed(1));
+        const percentFrequencyEventual = Number(((Number(totalBudget.eventualTotal) / totalFrequency) * 100).toFixed(1));
+
+        const freqData = [
+            {
+                name: "Recorrentes",
+                value: totalBudget.recurrentTotal,
+                percent: percentFrequencyRecurrent ? percentFrequencyRecurrent : 0,
+                color: '#4960c9',
+            },
+            {
+                name: "Eventuais",
+                value: totalBudget.eventualTotal,
+                percent: percentFrequencyEventual ? percentFrequencyEventual : 0,
+                color: '#4989c9',
+            }
+        ];
+        
+        return freqData;
+
+    }, [totalBudget.recurrentTotal, totalBudget.eventualTotal]);
 
     const historyData = useMemo(() => {
         return listOfMonths.map((_, month) => {
@@ -381,7 +401,7 @@ const Dashboard: React.FC = () => {
                     icon={message.icon}
                 />
 
-                <PieChartBox data={relationExpVsGains} />
+                <PieChartBox data={relationExpVsGains} freqData={relationRecurrentVsEventual} />
 
                 <HistoryBox
                     data={historyData}

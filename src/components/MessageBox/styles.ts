@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    width: 49%;
+    width: 39%;
     height: 260px;
 
     background-color: ${props => props.theme.colors.tertiary};

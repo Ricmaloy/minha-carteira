@@ -5,7 +5,7 @@ interface ILegendProps {
 }
 
 export const Container = styled.div`
-    width: 49%;
+    width: 59%;
     height: 260px;
 
     margin: 10px;
@@ -27,11 +27,16 @@ export const SideLeft = styled.aside`
     }
 `;
 
+export const LegendContainers = styled.div`
+    display: flex;
+`;
+
+
 export const LegendContainer = styled.ul`
     list-style: none;
 
     max-height: 175px;
-    padding-right: 30px;
+    padding-right: 20px;
 
     overflow-y: scroll;
 

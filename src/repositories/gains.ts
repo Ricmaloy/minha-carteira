@@ -1,5 +1,4 @@
 export default [
-  { "description": "Saldo Betway","amount": "50.00",   "type": "entrada", "frequency": "eventual",   "date": "2019-11-29" },
   { "description": "Salário",     "amount": "1300.52", "type": "entrada", "frequency": "recorrente", "date": "2020-01-10" }, 
   { "description": "Freela",      "amount": "150.13",  "type": "entrada", "frequency": "eventual",   "date": "2020-01-17" }, 
   { "description": "Salário",     "amount": "2500.23", "type": "entrada", "frequency": "recorrente", "date": "2020-02-10" }, 
@@ -10,4 +9,7 @@ export default [
   { "description": "Salário",     "amount": "2500.15", "type": "entrada", "frequency": "recorrente", "date": "2020-05-10" }, 
   { "description": "Salário",     "amount": "2500.12", "type": "entrada", "frequency": "recorrente", "date": "2020-06-10" }, 
   { "description": "Salário",     "amount": "2500.00", "type": "entrada", "frequency": "recorrente", "date": "2020-07-10" },
+  { "description": "Saldo Betway","amount": "50.00",   "type": "entrada", "frequency": "eventual",   "date": "2019-11-29" },
+  { "description": "Salário",     "amount": "150.00",  "type": "entrada", "frequency": "recorrente", "date": "2020-12-10" },
+  { "description": "frella ASCII","amount": "150.00",  "type": "entrada", "frequency": "eventual",   "date": "2020-12-10" },
 ]
