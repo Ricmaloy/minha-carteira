@@ -40,8 +40,11 @@ export const Filters = styled.div`
         &-eventual::after {
             border-bottom: 7px solid ${props => props.theme.colors.warning};
         }
+
     }
     .tag-actived {
             opacity: 1;
     }
+
+    
 `;

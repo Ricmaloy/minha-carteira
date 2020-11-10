@@ -43,6 +43,16 @@ export const Container = styled.li`
     > h3 {
         padding-right: 25px;
     }
+
+    .sc-cBoprd.hwVdXb {
+        background-color: ${props => props.theme.colors.success};
+    }
+
+    .sc-cBoprd.dRxByG {
+        background-color: ${props => props.theme.colors.warning};
+    }
+
+    
 `;
 
 export const Tag = styled.div<ITagProps>`

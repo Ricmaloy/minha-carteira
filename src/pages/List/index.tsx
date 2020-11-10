@@ -11,6 +11,8 @@ import formatCurrency from '../../utils/formatCurrency';
 import formatDate from '../../utils/formatDate';
 import listOfMonths from '../../utils/months';
 
+import { useTheme } from '../../hooks/theme';
+
 interface IRouteParams {
     match: {
         params: {
@@ -35,23 +37,25 @@ const List: React.FC<IRouteParams> = ( {match} ) => {
     const [yearSelected, setYearSelected] = useState<number>(new Date().getFullYear());
     const [frequencyFilterselected, setFrequencyFilterSelected] = useState(['recorrente','eventual']);
 
+    const {theme} = useTheme();
+
     const  movimentType = match.params.type;
 
     const pageData = useMemo(() => {
         return movimentType === 'entry-balance' ?
         {
             title: 'Entradas',
-            lineColor: '#4E4AF0',
+            lineColor: String(theme) === 'dark' ? '#4E4AF0' : '#03BB85' , // color success
             data: gains,
             
         }
         : 
         {
             title: 'Saídas',
-            lineColor:'#E44C4E',
+            lineColor: String(theme) === 'dark' ? '#E44C4E' : '#FF6961' , // color failure
             data: expenses,
         }
-    },[movimentType]);
+    },[movimentType, theme]);
 
     const months = useMemo(() => {
         return listOfMonths.map((month, index) => {

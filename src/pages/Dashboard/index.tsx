@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useCallback } from 'react';
 
 import ContentHeader from '../../components/ContentHeader';
 import SelectInput from '../../components/SelectInput';
@@ -339,23 +339,23 @@ const Dashboard: React.FC = () => {
 
     },[monthSelected, yearSelected]);
 
-    const handleMonthSelected = (month: string) => {
+    const handleMonthSelected = useCallback((month: string) => {
         try {
             const parseMonth = Number(month);
             setMonthSelected(parseMonth);
         } catch {
             throw new Error('invalid nonth value. is accept 0 - 24');
         }
-    }
+    },[]);
 
-    const handleYearSelected = (year: string) => {
+    const handleYearSelected = useCallback((year: string) => {
         try {
             const parseYear = Number(year);
             setYearSelected(parseYear);
         } catch {
             throw new Error('invalid nonth value. is accept integer number');
         }
-    }
+    },[])
 
     return (
         <Container>
