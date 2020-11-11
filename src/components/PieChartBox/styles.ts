@@ -17,18 +17,53 @@ export const Container = styled.div`
     border-radius: 7px;
 
     display: flex;
+
+    @media(max-width: 770px) {
+        display: flex;
+        width: 100%;
+    }
+
+    @media(max-width: 500px) {
+        flex-direction: column-reverse;
+        height: 400px;
+    }
+    
 `;
 
 export const SideLeft = styled.aside`
     padding: 30px 20px;
+    padding-right: 0px;
 
     > h2 {
         margin-bottom: 20px;
+    }
+
+    @media(max-width: 770px) {
+        padding: 20px 20px;
+    }
+
+    @media(max-width: 1345px) {
+        padding: 0 15px 5px;
+        margin-bottom: 7px;
+
+        >  h2 {
+            margin-top: 15px;
+            margin-bottom: 7px;
+        }
+    }
+
+    @media(max-width: 440px) {
+        margin-top: 15px;
+        margin-bottom: 7px;
     }
 `;
 
 export const LegendContainers = styled.div`
     display: flex;
+
+    @media(max-width: 500px) {
+        justify-content: space-evenly;
+    }
 `;
 
 
@@ -36,7 +71,7 @@ export const LegendContainer = styled.ul`
     list-style: none;
 
     max-height: 175px;
-    padding-right: 20px;
+    padding-right: 5px;
 
     overflow-y: scroll;
 
@@ -52,7 +87,51 @@ export const LegendContainer = styled.ul`
     ::-webkit-scrollbar-track {
         background-color: ${props => props.theme.colors.tertiary};
     }
+
+    @media(max-width: 1345px) {
+        display: none;
+    }
+
+    @media(max-width: 500px) {
+        display: block;
+    }
 `;
+
+export const LegendCompost = styled.ul`
+    list-style: none;
+
+    max-height: 175px;
+    padding-right: 5px;
+
+    overflow-y: scroll;
+
+    display: none;
+
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: ${props => props.theme.colors.secondary};
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: ${props => props.theme.colors.tertiary};
+    }
+
+    @media(max-width: 1345px) {
+        display: block;
+
+        display:flex;
+        flex-direction: column;
+    }
+
+    @media(max-width: 500px) {
+        display: none;
+    }
+`;
+
 
 export const Legend = styled.li<ILegendProps>`
     display: flex;
@@ -75,6 +154,22 @@ export const Legend = styled.li<ILegendProps>`
     > span {
         margin-left: 10px;
         font-size: 18px;
+    }
+
+    @media(max-width: 1345px) {
+        font-size: 14px;
+        margin: 7px 0;
+
+        > div {
+            font-size: 13px;
+            height: 40px;
+            width: 40px;
+            line-height: 40px;
+        }
+        > span {
+            font-size: 13px;
+            margin-left: 7px;
+        }
     }
 `;
 
@@ -100,5 +195,15 @@ export const SideRight= styled.main`
             font-size: 18px;
             color: ${props => props.theme.colors.white}
         }
+
+        > div {
+            @media(max-width: 500px) {
+                padding-top: 20px;
+            }
+        }
+    }
+
+    @media(max-width: 1345px) {
+        height: 100%
     }
 `;

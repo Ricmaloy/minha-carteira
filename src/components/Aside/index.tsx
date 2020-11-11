@@ -1,10 +1,15 @@
 import React from 'react';
 import logoImg from '../../assets/logo.svg';
-import { Container, Header, LogImg, MenuContainer, MenuItemLink, Title } from './styles'
-import { MdDashboard, MdArrowDownward, MdArrowUpward, MdExitToApp} from 'react-icons/md'
+import { Container, Header, LogImg, MenuContainer, MenuItemLink, MenuItemButton, Title } from './styles';
+import { MdDashboard, MdArrowDownward, MdArrowUpward, MdExitToApp} from 'react-icons/md';
 
+import { useAuth } from '../../hooks/auth';
 
-const Aside: React.FC = () => (
+const Aside: React.FC = () => {
+
+    const { signOut } = useAuth();
+    
+    return (
         <Container>
             <Header>
                 <LogImg src={logoImg} alt="Logo minha Carteira"/>
@@ -12,7 +17,7 @@ const Aside: React.FC = () => (
             </Header>
 
             <MenuContainer>
-                <MenuItemLink href="/dashboard">
+                <MenuItemLink href="/">
                     <MdDashboard/>
                     Dashboard
                 </MenuItemLink>
@@ -24,12 +29,13 @@ const Aside: React.FC = () => (
                     <MdArrowDownward/>
                     Saidas
                 </MenuItemLink>
-                <MenuItemLink href="#">
+                <MenuItemButton onClick={signOut}>
                     <MdExitToApp/>
                     Sair
-                </MenuItemLink>
+                </MenuItemButton>
             </MenuContainer>
         </Container>
     );
+}
 
 export default Aside;

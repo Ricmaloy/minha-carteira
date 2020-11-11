@@ -145,7 +145,8 @@ const List: React.FC<IRouteParams> = ( {match} ) => {
         });
 
        setData(formatedData);
-    }, [pageData, monthSelected, yearSelected, data.length, frequencyFilterselected]);
+       
+    }, [pageData, monthSelected, yearSelected, data.length, frequencyFilterselected, theme]);
 
     return (
         <Container>

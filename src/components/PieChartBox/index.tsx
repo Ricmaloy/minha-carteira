@@ -3,7 +3,7 @@ import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip} from 'recharts';
 import sleepyImg from '../../assets/sleeping.svg';
 import formatCurrency from '../../utils/formatCurrency';
 
-import { Container, SideLeft, LegendContainers, LegendContainer, Legend, SideRight } from './styles';
+import { Container, SideLeft, LegendContainers, LegendContainer, LegendCompost, Legend, SideRight } from './styles';
 
 type Indicator = {
     name : string;
@@ -43,6 +43,24 @@ const PieChartBox: React.FC<IPieChartProps> = ({data, freqData}) => (
                         ))
                     }
                 </LegendContainer>
+                <LegendCompost>
+                {
+                        data.map((indicator) => (
+                            <Legend key={indicator.name} color={indicator.color}>
+                                <div>{indicator.percent}%</div>
+                                <span>{indicator.name}</span>
+                            </Legend>
+                        ))
+                    }
+                    {
+                        freqData.map((indicator) => (
+                            <Legend key={indicator.name} color={indicator.color}>
+                                <div>{indicator.percent}%</div>
+                                <span>{indicator.name}</span>
+                            </Legend>
+                        ))
+                    }
+                </LegendCompost>
             </LegendContainers>
         </SideLeft>
 

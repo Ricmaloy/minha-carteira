@@ -44,15 +44,14 @@ export const Container = styled.li`
         padding-right: 25px;
     }
 
-    .sc-cBoprd.hwVdXb {
-        background-color: ${props => props.theme.colors.success};
+    /* .sc-cBoprd.hwVdXb {
+        background-color: ${props => props.theme.colors.success}!important;
     }
 
     .sc-cBoprd.dRxByG {
-        background-color: ${props => props.theme.colors.warning};
-    }
+        background-color: ${props => props.theme.colors.warning}!important;
+    } */
 
-    
 `;
 
 export const Tag = styled.div<ITagProps>`
@@ -61,6 +60,7 @@ export const Tag = styled.div<ITagProps>`
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     background-color: ${props => props.color};
+    /* background-color:  ${props => props.theme.colors.success}; */
 
     position: absolute;
     left: 0;

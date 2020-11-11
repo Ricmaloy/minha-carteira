@@ -24,4 +24,35 @@ export const Container = styled.div`
     > header p {
         font-size: 18px;
     }
+
+    @media(max-width: 770px){
+        width: 100%;
+        height: 220px;
+
+        > header h1 {
+            font-size: 28px;
+
+            img {
+                height: 26px;
+                width: 26px;
+            }
+        }
+    }
+
+    @media(max-width: 440px){
+
+        > header h1 {
+            font-size: 24px;
+
+            img {
+                height: 20px;
+                width: 20px;
+            }
+        }
+
+        > header p,
+        > footer span {
+            font-size: 14px;
+        }
+    }
 `;
