@@ -62,6 +62,11 @@ export const LegendContainer = styled.ul`
 
         height: auto;
     }
+
+    @media(max-width: 440px) {
+        display: flex;
+        flex-direction: column;
+    }
 `;
 
 export const Legend = styled.li<ILegendProps>`

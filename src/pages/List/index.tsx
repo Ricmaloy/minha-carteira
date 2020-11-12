@@ -42,17 +42,18 @@ const List: React.FC<IRouteParams> = ( {match} ) => {
     const  movimentType = match.params.type;
 
     const pageData = useMemo(() => {
+        // console.log(theme);
         return movimentType === 'entry-balance' ?
         {
             title: 'Entradas',
-            lineColor: String(theme) === 'dark' ? '#4E4AF0' : '#03BB85' , // color success
+            lineColor: String(theme.title) === 'dark' ? '#4E4AF0' : '#03BB85' , // color success
             data: gains,
             
         }
         : 
         {
             title: 'Saídas',
-            lineColor: String(theme) === 'dark' ? '#E44C4E' : '#FF6961' , // color failure
+            lineColor: String(theme.title) === 'dark' ? '#E44C4E' : '#FF6961' , // color failure
             data: expenses,
         }
     },[movimentType, theme]);
@@ -134,13 +135,17 @@ const List: React.FC<IRouteParams> = ( {match} ) => {
 
         const formatedData = filteredData.map(item => {
 
+            const recColor = theme.title === 'dark' ? '#4E41F0' : '#03BB85';
+            const eveColor = theme.title === 'dark' ? '#E44C4E' : '#FF6961';
+
             return {
                 id: uuidv4(), 
                 description: item.description,
                 amountFormated: formatCurrency(Number(item.amount)),
                 frequency: item.frequency,
                 dateFormated: formatDate(item.date),
-                tagColor: item.frequency === 'recorrente' ? '#4e41f0' : '#e44c4e' 
+                tagColor: item.frequency === 'recorrente' ? recColor : eveColor,
+                
             }
         });
 

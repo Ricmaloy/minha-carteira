@@ -24,6 +24,16 @@ export const TitleContainer = styled.div<ITitleContainerProps>`
             border-bottom: 10px solid ${props => props.lineColor};
         }
     }
+
+    @media(max-width: 440px){
+        > h1 {
+            font-size: 20px;
+
+            &::after {
+                border-bottom: 5px solid ${props => props.lineColor};
+            }
+        }
+    }
 `;
 
 export const Controllers = styled.div`
