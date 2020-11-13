@@ -6,14 +6,16 @@ import dolarImg from '../../assets/dollar.svg';
 import arrowUpImg from '../../assets/arrow-up.svg';
 import arrowDownImg from '../../assets/arrow-down.svg';
 
-import { Container } from './styles'
+import { Container } from './styles';
+
 
 interface IWalletBoxProps {
     title: string;
     amount: number;
     footerlabel:string;
     icon: 'dolar' | 'arrowUp' | 'arrowDown';
-    color: string;
+    PrimaryColorGradient: string;
+    SecondaryColorGradient: string;
 }
 
 const WalletBox: React.FC<IWalletBoxProps> = ({
@@ -21,7 +23,8 @@ const WalletBox: React.FC<IWalletBoxProps> = ({
     amount,
     footerlabel,
     icon,
-    color
+    PrimaryColorGradient,
+    SecondaryColorGradient,
 } ) => {
 
     const iconSelected = useMemo(() => {
@@ -37,7 +40,10 @@ const WalletBox: React.FC<IWalletBoxProps> = ({
     },[icon]);
 
     return (
-        <Container color={color}>
+        <Container 
+            PrimaryColor={PrimaryColorGradient} 
+            SecondaryColor={SecondaryColorGradient}
+        >
             <span>{title}</span>
             <h1>
                 <strong>R$</strong>

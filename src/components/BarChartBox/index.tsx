@@ -4,6 +4,9 @@ import formatCurrency from '../../utils/formatCurrency';
 
 import { Container, SideLeft, SideRight, LegendContainer, Legend } from './styles';
 
+import { useTheme } from '../../hooks/theme';
+
+
 interface IBarChartProps {
     title: string,
     data: {
@@ -14,7 +17,11 @@ interface IBarChartProps {
     }[]
 }
 
-const BarChartBox: React.FC<IBarChartProps> = ( { title, data } ) => (
+const BarChartBox: React.FC<IBarChartProps> = ( { title, data } ) => {
+
+    const {theme} = useTheme();
+    
+   return (
         <Container>
             <SideLeft>
             <h2>{title}</h2>
@@ -43,13 +50,13 @@ const BarChartBox: React.FC<IBarChartProps> = ( { title, data } ) => (
                             ))
                             }
                         </Bar>
-                        <XAxis dataKey="name" stroke="#fff" />
-                        <YAxis stroke="#fff"/>
+                        <XAxis dataKey="name" stroke={theme.colors.white} />
+                        <YAxis stroke={theme.colors.white} />
                     <Tooltip cursor={{ fill: 'none' }} formatter={(value) => formatCurrency(Number(value)) } />
                     </BarChart>
                 </ResponsiveContainer>
             </SideRight>
         </Container>
-    );
+    );}
 
 export default BarChartBox;

@@ -8,6 +8,8 @@ import PieChartBox from '../../components/PieChartBox';
 import HistoryBox from '../../components/HistoryBox';
 import BarChartBox from '../../components/BarChartBox';
 
+import { useTheme } from '../../hooks/theme';
+
 import gains from '../../repositories/gains';
 import expenses from '../../repositories/expenses';
 
@@ -357,6 +359,8 @@ const Dashboard: React.FC = () => {
         }
     },[])
 
+    const {theme} = useTheme();
+    
     return (
         <Container>
             <ContentHeader title="Dashboard" lineColor="#f7931b">
@@ -375,21 +379,24 @@ const Dashboard: React.FC = () => {
             <Content>
                 <WalletBox
                     title="Saldo"
-                    color="#4e41f0"
+                    PrimaryColorGradient={theme.colors.primaryGradient}
+                    SecondaryColorGradient={theme.colors.secondaryGradient}
                     amount={totalBudget.finalBudget}
                     footerlabel="Atualizado com base nas entradas e saídas"
                     icon="dolar"
                 />
                 <WalletBox
                     title="Entradas"
-                    color="#f7931b"
+                    PrimaryColorGradient="#FF8008"
+                    SecondaryColorGradient="#FFC837"
                     amount={totalBudget.totalInc}
                     footerlabel="Atualizado com base nas entradas e saídas"
                     icon="arrowUp"
                 />
                 <WalletBox
                     title="Saídas"
-                    color="#e44c4e"
+                    PrimaryColorGradient="#990000"
+                    SecondaryColorGradient="#FF0000"
                     amount={totalBudget.totalExp}
                     footerlabel="Atualizado com base nas entradas e saídas"
                     icon="arrowDown"

@@ -128,4 +128,13 @@ export const SideRight = styled.main`
 
         font-size: 12px;
     }
+
+    > div {
+        > div {
+            > svg {
+                color: red;
+            }
+        }
+    }
+
 `;

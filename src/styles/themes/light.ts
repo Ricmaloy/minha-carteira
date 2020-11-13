@@ -5,9 +5,12 @@ export default {
         secondary: '#FFFFFF',
         tertiary: '#F5F5F5',
 
+        primaryGradient: '#0f8a3f',
+        secondaryGradient: '#83ff59',
+
         white: '#000',
         black: '#FFF',
-        gray: '#BFBFBF',
+        gray: '#CECECE',
 
         success: '#03BB85',
         info: '#3B5998',

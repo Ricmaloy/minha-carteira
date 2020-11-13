@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 interface IContainerProps {
-    color: string
+    PrimaryColor: string;
+    SecondaryColor: string;
 }
 
 export const Container = styled.div<IContainerProps>`
@@ -9,14 +10,20 @@ export const Container = styled.div<IContainerProps>`
     height: 150px;
     margin: 10px 0px;
 
-    background-color: ${props => props.color};
+    background: linear-gradient(to bottom right, ${props => props.PrimaryColor} 15%, ${props => props.SecondaryColor});
     color: ${props => props.theme.colors.white};
+    color: #f7f7f7;
+    color: #fff;
     border-radius: 7px;
     padding: 10px 20px;
 
     overflow: hidden;
 
     position: relative;
+
+    > h1 strong {
+        margin-right: 5px;
+    }
 
     > img {
         height: 110%;

@@ -42,7 +42,6 @@ const List: React.FC<IRouteParams> = ( {match} ) => {
     const  movimentType = match.params.type;
 
     const pageData = useMemo(() => {
-        // console.log(theme);
         return movimentType === 'entry-balance' ?
         {
             title: 'Entradas',

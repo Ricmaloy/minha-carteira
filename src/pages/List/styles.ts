@@ -34,11 +34,13 @@ export const Filters = styled.div`
         }
 
         &-recurrent::after {
-            border-bottom: 7px solid ${props => props.theme.colors.success};
+            border-bottom: 5px solid ${props => props.theme.colors.success};
+            border-radius: 5px;
         }
 
         &-eventual::after {
-            border-bottom: 7px solid ${props => props.theme.colors.warning};
+            border-bottom: 5px solid ${props => props.theme.colors.warning};
+            border-radius: 5px;
         }
 
     }
