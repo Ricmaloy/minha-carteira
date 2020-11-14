@@ -1,8 +1,23 @@
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 
 interface ILegendProps {
     color: string;
 }
+
+const fadeInLeft = keyframes`
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    50% {
+        opacity: .3;
+    }
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+`;
+
 
 export const Container = styled.div`
     width: 100%;
@@ -21,6 +36,8 @@ export const Container = styled.div`
         margin-bottom: 20px;
         padding-left: 16px;
     }
+
+    animation: ${fadeInLeft} .5s;
 `;
 
 export const ChartContainer = styled.div`

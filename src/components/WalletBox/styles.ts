@@ -1,9 +1,20 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 interface IContainerProps {
     PrimaryColor: string;
     SecondaryColor: string;
 }
+
+const fadeInRight = keyframes`
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    100% {
+        transform: translateX(-0px);
+        opacity: 1;
+    }
+`;
 
 export const Container = styled.div<IContainerProps>`
     width: 32%;
@@ -12,7 +23,6 @@ export const Container = styled.div<IContainerProps>`
 
     background: linear-gradient(to bottom right, ${props => props.PrimaryColor} 15%, ${props => props.SecondaryColor});
     color: ${props => props.theme.colors.white};
-    color: #f7f7f7;
     color: #fff;
     border-radius: 7px;
     padding: 10px 20px;
@@ -20,6 +30,8 @@ export const Container = styled.div<IContainerProps>`
     overflow: hidden;
 
     position: relative;
+
+    animation: ${fadeInRight} .5s;
 
     > h1 strong {
         margin-right: 5px;
