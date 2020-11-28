@@ -10,7 +10,6 @@ interface IThemeFooterProps {
 
 export const Container = styled.div<IContainerProps>`
     grid-area: AS;
-    padding-left: 20px;
 
     background-color: ${props => props.theme.colors.secondary};
     border-right: 1px solid ${props => props.theme.colors.gray};
@@ -36,8 +35,10 @@ export const Container = styled.div<IContainerProps>`
 
 export const Header = styled.header`
     height: 70px;
-    display: flex;
+    padding-left: 20px;
+
     align-items: center;
+    display: flex;
 `;
 
 export const LogImg = styled.img`
@@ -59,54 +60,62 @@ export const Title = styled.h3`
 `;
 
 export const MenuContainer = styled.nav`
+    margin-top: 50px;
+
     display:flex;
     flex-direction: column;
-    margin-top: 50px;
 `;
 
 export const MenuItemLink = styled.a`
     color: ${props => props.theme.colors.info};
+    
     text-decoration: none;
-    margin: 7px 0;
+    padding: 12px 0;
+    padding-left: 20px;
+
     display: flex;
     align-items: center;
 
     transition: opacity .3s,
-                margin .3s;
+                padding-left .3s,
+                background-color .3s;
 
     &:hover {
         opacity: .7;
-        margin: 7px 4px;
+        padding-left: 30px;
+        border-right: 2px solid ${props => props.theme.colors.info};
+        background-color: ${props => props.theme.colors.backMenu};
     }
 
     > svg {
-        font-size: 20px;
+        font-size: 25px;
         margin-right: 5px;
     }
 `;
 
 export const MenuItemButton = styled.button`
-
     font-size: 16px;
     color: ${props => props.theme.colors.info};
+    
+    padding: 12px 0;
+    padding-left: 20px;
 
     border:none;
     background: none;
     
-    margin: 7px 0;
     display: flex;
     align-items: center;
 
     transition: opacity .3s,
-                margin .3s;
+                padding-left .3s;
 
     &:hover {
         opacity: .7;
-        margin: 7px 4px;
+        padding-left: 30px;
     }
 
     > svg {
-        font-size: 20px;
+        font-size: 25px;
         margin-right: 5px;
     }
 `;

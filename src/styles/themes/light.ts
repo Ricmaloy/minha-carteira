@@ -12,6 +12,8 @@ export default {
         black: '#FFF',
         gray: '#CECECE',
 
+        backMenu: '#eeeeee',
+
         success: '#03BB85',
         info: '#3B5998',
         warning: '#FF6961'

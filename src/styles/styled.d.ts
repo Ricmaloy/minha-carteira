@@ -15,6 +15,8 @@ declare module 'styled-components' {
             black: string,
             gray: string,
 
+            backMenu: string,
+
             success: string,
             info: string,
             warning: string
