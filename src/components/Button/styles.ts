@@ -6,15 +6,16 @@ export const Container = styled.button`
     margin: 10px 0;
     padding: 14px;
 
-    border-radius: 7px;
+    border-radius: 5px;
 
     font-weight: bold;
     color: ${props => props.theme.colors.white};
+    color: #fff;
     background-color: ${props => props.theme.colors.warning};
 
     transition: opacity .3s;
 
     &:hover {
-        opacity: .7;
+        opacity: .9;
     }
 `;

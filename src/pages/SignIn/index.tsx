@@ -7,7 +7,7 @@ import Button from '../../components/Button';
 
 import { useAuth } from '../../hooks/auth';
 
-import { Container, Logo, Form, FormTitle } from './styles';
+import { Container, ContainerContent, Panel, Login, LoginContent, Logo, Main, Form, Credits, InputField } from './styles';
 
 
 const SignIn: React.FC = () => {
@@ -18,29 +18,40 @@ const SignIn: React.FC = () => {
 
     return (
         <Container>
-            <Logo>
-                <img src={logoImg} alt="Minha Carteira" />
-                <h2>Minha Carteira</h2>
-            </Logo>
-
-            <Form onSubmit={() => signIn(email,password)} >
-                <FormTitle> Entrar </FormTitle>
-
-                <Input
-                    required
-                    type="email"
-                    placeholder="email"
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-                <Input
-                    required
-                    type="password"
-                    placeholder="senha"
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-
-                <Button type="submit">Acessar</Button>
-            </Form>
+            <ContainerContent>
+                <Panel></Panel>
+                <Login>
+                    <LoginContent>
+                    <Logo>
+                        <h2>Minha Carteira</h2>
+                        <img src={logoImg} alt="Minha Carteira" />
+                    </Logo>
+                    <Main>
+                        <p>Entre agora mesmo</p>
+                        <Form onSubmit={() => signIn(email,password)} >
+                            <span>Email</span>
+                            <InputField>
+                                <Input
+                                    required
+                                    type="email"
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
+                            </InputField>
+                            <span>Password</span>
+                            <InputField>
+                                <Input
+                                    required
+                                    type="password"
+                                    onChange={(e) => setPassword(e.target.value)}
+                                />
+                            </InputField>
+                            <Button type="submit">Acessar</Button>
+                        </Form>
+                    </Main>
+                    <Credits>Terms of use</Credits>
+                    </LoginContent>
+                </Login>
+            </ContainerContent>
         </Container>
     );
         

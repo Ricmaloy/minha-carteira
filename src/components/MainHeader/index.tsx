@@ -1,5 +1,5 @@
-import React, {useMemo, useState} from 'react';
-import emojis from '../../utils/emojis';
+import React, {useState} from 'react';
+// import emojis from '../../utils/emojis';
 import Toggle from '../Toggle';
 
 import UserImg from '../../assets/profile.jpg';
@@ -19,10 +19,10 @@ const MainHeader: React.FC = () => {
         toggleTheme();
     }
 
-    const emoji = useMemo(() => {
-        const indice = Math.floor(Math.random() * emojis.length );
-        return emojis[indice];
-    }, []);
+    // const emoji = useMemo(() => {
+    //     const indice = Math.floor(Math.random() * emojis.length );
+    //     return emojis[indice];
+    // }, []);
   
     return (
         <Container>
