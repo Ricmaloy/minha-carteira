@@ -16,6 +16,23 @@ export const Container = styled.div`
 
 export const Profile = styled.div`
     color:  ${props => props.theme.colors.white};
+    display: flex;
+    margin-right: 20px;
+`;
+
+export const UserInfo = styled.div`
+    text-align: end;
+`;
+
+export const UserPhoto = styled.img`
+    width: 45px;
+    height: 45px;
+
+    border: 1px solid ${props => props.theme.colors.info};
+    padding: 2px;
+    margin-left: 10px;
+
+    border-radius: 50%;
 `;
 
 export const Welcome = styled.h3``;

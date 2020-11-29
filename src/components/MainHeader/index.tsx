@@ -2,7 +2,9 @@ import React, {useMemo, useState} from 'react';
 import emojis from '../../utils/emojis';
 import Toggle from '../Toggle';
 
-import { Container, Profile, Welcome, UserName } from './styles';
+import UserImg from '../../assets/profile.jpg';
+
+import { Container, Profile, Welcome, UserName, UserInfo, UserPhoto } from './styles';
 
 import { useTheme } from '../../hooks/theme';
 
@@ -31,8 +33,12 @@ const MainHeader: React.FC = () => {
                 onChange={handleChangeTheme}
             />
             <Profile>
-                 <Welcome>Olá, {emoji}</Welcome>
-                <UserName>Ricardo Zamboni</UserName>
+                <UserInfo>
+                    {/* <Welcome>Olá, {emoji}</Welcome> */}
+                    <Welcome>Bem Vindo,</Welcome>
+                    <UserName>Ricardo Zamboni</UserName>
+                </UserInfo>
+                <UserPhoto src={UserImg} alt="User Profile Picture" />
             </Profile>
         </Container>
     );
