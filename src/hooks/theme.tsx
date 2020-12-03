@@ -23,6 +23,8 @@ interface ITheme {
         black: string;
         gray: string;
 
+        backMenu: string;
+
         success: string;
         info: string;
         warning: string;

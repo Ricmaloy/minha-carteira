@@ -12,6 +12,7 @@ export const Container = styled.button`
     color: ${props => props.theme.colors.white};
     color: #fff;
     background-color: ${props => props.theme.colors.warning};
+    background-color: #1594c3;
 
     transition: opacity .3s;
 

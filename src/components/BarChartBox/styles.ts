@@ -44,7 +44,7 @@ export const Container = styled.div`
 
 export const SideLeft = styled.aside`
     flex: 1;
-    padding: 30px 20px;
+    padding: 30px 0 30px 20px;
 
     > h2 {
         padding-left: 16px;
@@ -107,7 +107,7 @@ export const Legend = styled.li<ILegendProps>`
 
     > span {
         margin-left: 10px;
-        font-size: 18px;
+        font-size: 14px;
     }
 
     @media(max-width: 1000px) {
@@ -137,6 +137,7 @@ export const SideRight = styled.main`
 
     @media(max-width: 1200px) {
         transform: translateX(-20px);
+        padding-top: 0px;
     }
 
     @media(max-width: 600px) {
@@ -146,9 +147,12 @@ export const SideRight = styled.main`
     }
 
     > div {
+        flex: 1;
         > div {
+        flex: 1;
             > svg {
-                color: red;
+                font-size: 15px;
+                
             }
         }
     }

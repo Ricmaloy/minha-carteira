@@ -1,4 +1,5 @@
 import React from 'react';
+import GlobalFonts from './fonts/fonts';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyles from './styles/GlobalStyles';
 
@@ -10,6 +11,7 @@ const App: React.FC = () => {
     const {theme} = useTheme();
     return (
         <ThemeProvider theme={theme}>
+            <GlobalFonts/>
             <GlobalStyles/>
             <Routes/>
         </ThemeProvider>

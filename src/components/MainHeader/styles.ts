@@ -27,8 +27,11 @@ export const UserInfo = styled.div`
 export const UserPhoto = styled.img`
     width: 45px;
     height: 45px;
-
+    
     border: 1px solid ${props => props.theme.colors.info};
+    
+    align-self: center;
+
     padding: 2px;
     margin-left: 10px;
 

@@ -13,5 +13,6 @@ export const Container = styled.input`
     &:focus,
     &:valid {
         border-bottom: 1px solid ${props => props.theme.colors.warning};
+        border-bottom: 1px solid #1594c3;
     }
 `;

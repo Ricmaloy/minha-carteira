@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
-import logoImg from '../../assets/logo.svg';
+import logoImg from '../../assets/logo2.svg';
+import WalletLogo from '../../assets/Wallet1.svg';
 
 import Input from '../../components/Input';
 import Button from '../../components/Button';
@@ -19,7 +20,10 @@ const SignIn: React.FC = () => {
     return (
         <Container>
             <ContainerContent>
-                <Panel></Panel>
+                <Panel>
+                    <img src={WalletLogo} alt="Carteira" />
+                    <p>" Tenha total controle dos seus ganhos e gastos, tudo isso na palma da sua mão e de graça. "</p>
+                </Panel>
                 <Login>
                     <LoginContent>
                     <Logo>
@@ -37,7 +41,7 @@ const SignIn: React.FC = () => {
                                     onChange={(e) => setEmail(e.target.value)}
                                 />
                             </InputField>
-                            <span>Password</span>
+                            <span>Senha</span>
                             <InputField>
                                 <Input
                                     required

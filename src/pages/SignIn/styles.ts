@@ -30,6 +30,24 @@ export const Panel = styled.div`
     border-bottom-left-radius: 5px;
 
     background-color: #e44c4e;
+    background: linear-gradient(to bottom right,#002b65 15%,#1CB5E0);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        width: 70%;
+    }
+
+    p {
+        width: 70%;
+
+        font-size: 19px;
+        text-align: center;
+        color: ${props => props.theme.colors.black};
+    }
 `;
 
 export const Login = styled.div`
@@ -58,7 +76,7 @@ export const Login = styled.div`
 export const LoginContent = styled.div`
     height: 100%;
 
-    margin: 0 25px;
+    margin: 0 55px;
 
     display: flex;
     justify-content: space-between;
@@ -93,8 +111,8 @@ export const Main = styled.div`
 
 export const Form = styled.form`
     span {
-        font-size: 24px;
-        letter-spacing: 2px;
+        font-size: 18px;
+        letter-spacing: 1px;
     }
 `;
 
@@ -115,6 +133,7 @@ export const InputField = styled.div`
             transition: all .3s;
 
             background-color: ${props => props.theme.colors.warning};
+            background-color: #1594c3;
     }
 
     &:hover::after {

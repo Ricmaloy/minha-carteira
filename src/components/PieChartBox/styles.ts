@@ -169,7 +169,7 @@ export const Legend = styled.li<ILegendProps>`
 
     > span {
         margin-left: 10px;
-        font-size: 18px;
+        font-size: 14px;
     }
 
     @media(max-width: 1345px) {
