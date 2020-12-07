@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useCallback } from 'react';
+import React, { useMemo, useState, useEffect, useCallback } from 'react';
 
 import ContentHeader from '../../components/ContentHeader';
 import SelectInput from '../../components/SelectInput';
@@ -8,25 +8,43 @@ import PieChartBox from '../../components/PieChartBox';
 import HistoryBox from '../../components/HistoryBox';
 import BarChartBox from '../../components/BarChartBox';
 
+import { v4 as uuidv4 } from 'uuid';
+
 import { useTheme } from '../../hooks/theme';
 
 import gains from '../../repositories/gains';
 import expenses from '../../repositories/expenses';
+import transactions from '../../repositories/transactions';
 
 import { Container, Content } from './styles';
 
+import formatTransactions from '../../utils/formatTransactions';
+import formatDay from '../../utils/formatDay';
 import listOfMonths from '../../utils/months';
 
 import happyImg from '../../assets/happy.svg';
 import grinningImg from '../../assets/grinning.svg';
 import sadImg from '../../assets/sad.svg';
 import flushedImg from '../../assets/flushed.svg';
+import Transactions from '../../components/Transaction';
+import TransactionsBox from '../../components/TransactionsBox';
 
+interface IData {
+    id: string;
+    isGain: string;
+    description: string;
+    amountFormated: string;
+    frequency: string;
+    category: string;
+    tagColor: string;
+    dateFormated: string;
+}
 
 const Dashboard: React.FC = () => {
 
     const [monthSelected, setMonthSelected] = useState<number>(new Date().getMonth() + 1);
     const [yearSelected, setYearSelected] = useState<number>(new Date().getFullYear());
+    const [allData, setAllData] = useState<IData[]>([]);
 
     const months = useMemo(() => {
         return listOfMonths.map((month, index) => {
@@ -358,8 +376,47 @@ const Dashboard: React.FC = () => {
             throw new Error('invalid nonth value. is accept integer number');
         }
     },[])
-
+    
     const {theme} = useTheme();
+
+    useEffect(() => {
+        const data = transactions;
+
+        const filteredData = data.filter(item => {
+            const date = new Date(item.date);
+            const month = date.getMonth() + 1;
+            const year = date.getFullYear();
+            
+            return  month === monthSelected && year === yearSelected;
+        });
+
+        const formatedData = filteredData.map(item => {
+
+            let color;
+            item.category === 'Alimento' ? color = '#2574A0' 
+            : item.category === 'Vestuário' ? color = '#FF4040'
+            : item.category === 'Lazer' ? color = '#FF9C28'
+            : item.category === 'Salário' ? color = '#0F8645'
+            : item.category === 'Saude' ? color = '#22BADB'
+            : color = '#C05E02';
+
+    
+            return {
+                id: uuidv4(), 
+                isGain: item.isGain,
+                description: item.description,
+                amountFormated: formatTransactions(Number(item.amount), item.isGain ==='true' ? true : false),
+                frequency: item.frequency,
+                category: item.category,
+                dateFormated: formatDay(item.date),
+                tagColor: color, 
+            }
+        });
+
+       setAllData(formatedData);
+
+    },[monthSelected, yearSelected, allData.length, theme]);
+
     
     return (
         <Container>
@@ -409,6 +466,24 @@ const Dashboard: React.FC = () => {
                 />
 
                 <PieChartBox data={relationExpVsGains} freqData={relationRecurrentVsEventual} />
+
+
+                <TransactionsBox>
+                {
+                    allData.map( item => (
+                        <Transactions
+                            key={item.id}
+                            date={item.dateFormated}
+                            title={item.description}
+                            frequency={item.frequency}
+                            category={item.category}
+                            categoryColor={item.tagColor}
+                            amount={item.amountFormated}
+                            amountColor={item.isGain === 'true' ? '#03BB85' : '#ff6363'}
+                        />
+                    ))
+                }
+                </TransactionsBox>
 
                 <HistoryBox
                     data={historyData}

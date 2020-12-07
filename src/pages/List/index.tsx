@@ -26,6 +26,7 @@ interface IData {
     description: string;
     amountFormated: string;
     frequency: string;
+    category: string;
     dateFormated: string;
     tagColor: string;
 }
@@ -142,6 +143,7 @@ const List: React.FC<IRouteParams> = ( {match} ) => {
                 description: item.description,
                 amountFormated: formatCurrency(Number(item.amount)),
                 frequency: item.frequency,
+                category: item.category,
                 dateFormated: formatDate(item.date),
                 tagColor: item.frequency === 'recorrente' ? recColor : eveColor,
                 
@@ -197,7 +199,7 @@ const List: React.FC<IRouteParams> = ( {match} ) => {
                         amount={item.amountFormated}
                     />
                 ))
-}
+            }
         </Content>
 
         </Container>
