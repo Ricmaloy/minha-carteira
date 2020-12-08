@@ -28,6 +28,7 @@ import sadImg from '../../assets/sad.svg';
 import flushedImg from '../../assets/flushed.svg';
 import Transactions from '../../components/Transaction';
 import TransactionsBox from '../../components/TransactionsBox';
+import RadarChartBox from '../../components/RadarChartBox';
 
 interface IData {
     id: string;
@@ -228,6 +229,113 @@ const Dashboard: React.FC = () => {
         return freqData;
 
     }, [totalBudget.recurrentTotal, totalBudget.eventualTotal]);
+
+    const relationActualMonthVsLastMonth = useMemo(() => {
+
+        // calculate actual month   
+        let AMalimento: number = 0, 
+            AMvestuario: number = 0, 
+            AMlazer: number = 0, 
+            AMfarmacia: number = 0, 
+            AMsalario: number = 0, 
+            AMoutro: number = 0, 
+            AMhighest: number = 0;
+            
+            transactions.forEach(item => {
+                const date = new Date(item.date);
+                const year = date.getFullYear();
+                const month = date.getMonth() + 1;
+    
+                if(month === monthSelected && year === yearSelected) {
+                    try {
+                        item.category === 'Alimento' ? AMalimento += Number(item.amount)
+                        : item.category === 'Vestuário' ? AMvestuario += Number(item.amount)
+                        : item.category === 'Lazer' ? AMlazer += Number(item.amount)
+                        : item.category === 'Farmácia' ? AMfarmacia += Number(item.amount)
+                        : item.category === 'Salário' ? AMsalario += Number(item.amount)
+                        :  AMoutro += Number(item.amount)
+    
+                    } catch {
+                        throw new Error('Inavalid amount! amount must be number.')
+                    }
+                }
+            });
+
+            Math.max(AMalimento, AMvestuario, AMlazer, AMfarmacia, AMsalario, AMoutro);
+
+        // calculate past month
+        let LMalimento: number = 0, 
+            LMvestuario: number = 0, 
+            LMlazer: number = 0, 
+            LMfarmacia: number = 0, 
+            LMsalario: number = 0, 
+            LMoutro: number = 0, 
+            LMhighest: number = 0;
+
+            transactions.forEach(item => {
+                const date = new Date(item.date);
+                const year = date.getFullYear();
+                const month = date.getMonth();
+    
+                if(month === monthSelected-2 && year === yearSelected) {
+                    try {
+                        item.category === 'Alimento' ? LMalimento += Number(item.amount)
+                        : item.category === 'Vestuário' ? LMvestuario += Number(item.amount)
+                        : item.category === 'Lazer' ? LMlazer += Number(item.amount)
+                        : item.category === 'Farmácia' ? LMfarmacia += Number(item.amount)
+                        : item.category === 'Salário' ? LMsalario += Number(item.amount)
+                        :  LMoutro += Number(item.amount)
+    
+                    } catch {
+                        throw new Error('Inavalid amount! amount must be number.')
+                    }
+                }
+            });
+
+            Math.max(LMalimento, LMvestuario, LMlazer, LMfarmacia, LMsalario, LMoutro);
+
+        const data = [   
+            {
+                category: 'Alimento',
+                actualMonth: AMalimento,
+                lastMonth: LMalimento,
+                fullMark: AMhighest > LMhighest ? AMhighest : LMhighest,
+            },
+            {
+                category: 'Salário',
+                actualMonth: AMsalario,
+                lastMonth: LMsalario,
+                fullMark: AMhighest > LMhighest ? AMhighest : LMhighest,
+            },
+            {
+                category: 'Lazer',
+                actualMonth: AMlazer,
+                lastMonth: LMlazer,
+                fullMark: AMhighest > LMhighest ? AMhighest : LMhighest,
+            },
+            {
+                category: 'Farmácia',
+                actualMonth: AMfarmacia,
+                lastMonth: LMfarmacia,
+                fullMark: AMhighest > LMhighest ? AMhighest : LMhighest,
+            },
+            {
+                category: 'Vestuário',
+                actualMonth: AMvestuario,
+                lastMonth: LMvestuario,
+                fullMark: AMhighest > LMhighest ? AMhighest : LMhighest,
+            },
+            {
+                category: 'Outro',
+                actualMonth: AMoutro,
+                lastMonth: LMoutro,
+                fullMark: AMhighest > LMhighest ? AMhighest : LMhighest,
+            },         
+        ];
+
+        return data;
+
+    }, [monthSelected, yearSelected]);
 
     const historyData = useMemo(() => {
         return listOfMonths.map((_, month) => {
@@ -484,6 +592,8 @@ const Dashboard: React.FC = () => {
                     ))
                 }
                 </TransactionsBox>
+
+                <RadarChartBox data={relationActualMonthVsLastMonth} />
 
                 <HistoryBox
                     data={historyData}
