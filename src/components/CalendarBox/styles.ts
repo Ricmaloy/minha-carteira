@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    width: 39%;
+    width: 100%;
     height: 150px;
 
     margin: 10px 0px;
     padding: 15px 40px;
     border-radius: 5px;
-    border-top: 15px solid red;
+    border-top: 15px solid  ${props => props.theme.colors.warning};
 
     background-color: ${props => props.theme.colors.tertiary};
     color:  ${props => props.theme.colors.white};
@@ -24,6 +24,10 @@ export const Container = styled.div`
         padding: 15px 15px;
     }
 
+    @media(max-width: 800px) {
+        height: 110px;
+    }
+
     @media(max-width: 600px) {
         padding: 5px 15px;
     }
@@ -37,18 +41,10 @@ export const WeekDay = styled.span`
     @media(max-width: 1380px) {
         font-size: 15px;
     }
-
-    @media(max-width: 800px) {
-        font-size: 10px;
-    }
 `;
 
 export const Date = styled.div`
     display: flex;
-
-    @media(max-width: 800px) {
-        flex-direction: column;
-    }
 `;
 
 export const Day = styled.h1`
@@ -64,18 +60,6 @@ export const Day = styled.h1`
     @media(max-width: 1200px) {
         font-size: 25px;
     }
-
-    @media(max-width: 1000px) {
-        font-size: 20px;
-    }
-
-    @media(max-width: 800px) {
-        font-size: 16px;
-    }
-
-    @media(max-width: 470px) {
-        font-size: 20px;
-    }
 `;
 
 export const Month = styled.h1`
@@ -89,13 +73,5 @@ export const Month = styled.h1`
 
     @media(max-width: 1200px) {
         font-size: 25px;
-    }
-
-    @media(max-width: 1000px) {
-        font-size: 20px;
-    }
-
-    @media(max-width: 800px) {
-        font-size: 16px;
     }
 `;

@@ -7,3 +7,11 @@ export const Content = styled.div`
     justify-content: space-between;
     flex-wrap: wrap;
 `;
+
+export const Calendar = styled.div`
+    width: 39%;
+
+    @media(max-width: 800px) {
+        width: 100%;
+    }
+`;

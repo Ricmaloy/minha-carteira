@@ -7,7 +7,11 @@ import MessageBox from '../../components/MessageBox';
 import PieChartBox from '../../components/PieChartBox';
 import HistoryBox from '../../components/HistoryBox';
 import BarChartBox from '../../components/BarChartBox';
+import Transactions from '../../components/Transaction';
+import TransactionsBox from '../../components/TransactionsBox';
+import RadarChartBox from '../../components/RadarChartBox';
 import CalendarBox from '../../components/CalendarBox';
+import RemindersNoteBox from '../../components/RemindersNoteBox';
 
 import { v4 as uuidv4 } from 'uuid';
 
@@ -16,8 +20,9 @@ import { useTheme } from '../../hooks/theme';
 import gains from '../../repositories/gains';
 import expenses from '../../repositories/expenses';
 import transactions from '../../repositories/transactions';
+import events from '../../repositories/events';
 
-import { Container, Content } from './styles';
+import { Container, Content, Calendar } from './styles';
 
 import formatTransactions from '../../utils/formatTransactions';
 import formatDay from '../../utils/formatDay';
@@ -29,9 +34,6 @@ import happyImg from '../../assets/happy.svg';
 import grinningImg from '../../assets/grinning.svg';
 import sadImg from '../../assets/sad.svg';
 import flushedImg from '../../assets/flushed.svg';
-import Transactions from '../../components/Transaction';
-import TransactionsBox from '../../components/TransactionsBox';
-import RadarChartBox from '../../components/RadarChartBox';
 
 interface IData {
     id: string;
@@ -195,6 +197,30 @@ const Dashboard: React.FC = () => {
         }
 
     },  [totalBudget.finalBudget, totalBudget.totalInc, totalBudget.totalExp]);
+
+    const relationEvents = useMemo(() => {
+
+        let eventsCounter = 0;
+
+        events.forEach(item => {
+            const date = new Date(item.date);
+            const year = date.getFullYear();
+            const month = date.getMonth() + 1;
+
+            if(month === monthSelected && year === yearSelected) {
+                try {
+                    eventsCounter++;
+                } catch {
+                    throw new Error('Inavalid amount! amount must be number.')
+                }
+            }
+        });
+
+        console.log(eventsCounter);
+
+        return eventsCounter >= 9 ? `${eventsCounter}` : `0${eventsCounter}`;
+
+    },[monthSelected, yearSelected]);
 
     const relationExpVsGains = useMemo(() => {
         
@@ -611,11 +637,16 @@ const Dashboard: React.FC = () => {
 
                 <RadarChartBox data={relationActualMonthVsLastMonth}/>
 
-                <CalendarBox 
-                    dayText={calendarDate.weekDay}
-                    dayNumber={calendarDate.day}
-                    month={calendarDate.month}
-                />
+
+                <Calendar>
+                    <CalendarBox 
+                        dayText={calendarDate.weekDay}
+                        dayNumber={calendarDate.day}
+                        month={calendarDate.month}
+                    />
+
+                    <RemindersNoteBox events={relationEvents} />
+                </Calendar>
 
                 <HistoryBox
                     data={historyData}
