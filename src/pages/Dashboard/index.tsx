@@ -7,6 +7,7 @@ import MessageBox from '../../components/MessageBox';
 import PieChartBox from '../../components/PieChartBox';
 import HistoryBox from '../../components/HistoryBox';
 import BarChartBox from '../../components/BarChartBox';
+import CalendarBox from '../../components/CalendarBox';
 
 import { v4 as uuidv4 } from 'uuid';
 
@@ -21,6 +22,8 @@ import { Container, Content } from './styles';
 import formatTransactions from '../../utils/formatTransactions';
 import formatDay from '../../utils/formatDay';
 import listOfMonths from '../../utils/months';
+import formatMonth from '../../utils/formatMonth';
+import formatWeekDay from '../../utils/formatWeekDay';
 
 import happyImg from '../../assets/happy.svg';
 import grinningImg from '../../assets/grinning.svg';
@@ -75,6 +78,19 @@ const Dashboard: React.FC = () => {
                 label: year,
             }
         });
+
+    },[]);
+
+    const calendarDate = useMemo(() => {
+
+        var dateFormat = require("dateformat");
+        var now = new Date();
+
+        return {
+            weekDay: formatWeekDay(dateFormat(now, "dddd")),
+            day: dateFormat(now, "d"),
+            month: formatMonth(dateFormat(now, " mmmm")),
+        }
 
     },[]);
 
@@ -593,7 +609,13 @@ const Dashboard: React.FC = () => {
                 }
                 </TransactionsBox>
 
-                <RadarChartBox data={relationActualMonthVsLastMonth} />
+                <RadarChartBox data={relationActualMonthVsLastMonth}/>
+
+                <CalendarBox 
+                    dayText={calendarDate.weekDay}
+                    dayNumber={calendarDate.day}
+                    month={calendarDate.month}
+                />
 
                 <HistoryBox
                     data={historyData}
