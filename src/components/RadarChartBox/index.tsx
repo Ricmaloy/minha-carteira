@@ -33,14 +33,14 @@ const RadarChartBox :React.FC<IRadarChartProps> = ({data}) => {
                         <PolarGrid />
                         <PolarAngleAxis dataKey="category" stroke={theme.colors.white}/>
                         <PolarRadiusAxis stroke={theme.colors.white} />
-                        <Radar name="Mês Atual" dataKey="actualMonth" stroke="#009688" fill="#009688" fillOpacity={0.6}/>
-                        <Radar name="Ùltimo mês" dataKey="lastMonth" stroke="#959595" fill="#959595" fillOpacity={0.6}/>
+                        <Radar name="Mês Atual" dataKey="actualMonth" stroke={theme.colors.info} fill={theme.colors.info} fillOpacity={0.9}/>
+                        <Radar name="Ùltimo mês" dataKey="lastMonth" stroke="#959595" fill="#959595" fillOpacity={0.9}/>
                         <Tooltip  formatter={(value) => formatCurrency(Number(value)) }/> 
                     </RadarChart>
                 </ResponsiveContainer>
             </SideLeft>
             <SideRight>
-                    <Legend color="#009688">Mês atual</Legend>
+                    <Legend color={theme.colors.info}>Mês atual</Legend>
                     <Legend color="#959595" >Mês anterior</Legend>
             </SideRight>
         </ContainerContent>

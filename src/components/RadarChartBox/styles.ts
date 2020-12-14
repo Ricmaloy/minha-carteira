@@ -6,7 +6,7 @@ interface ILegendProps {
 
 export const Container = styled.div`
     width: 59%;
-    height: 360px;
+    height: 500px;
 
     margin: 10px 0px;
     padding: 30px 20px;
@@ -16,7 +16,7 @@ export const Container = styled.div`
 
     border-radius: 7px;
 
-    @media(max-width: 1200px) {
+    @media(max-width: 1380px) {
         height: 400px;
     }
 
@@ -87,7 +87,7 @@ export const Legend = styled.li<ILegendProps>`
         width: 20px;
         height: 20px;
         background-color: ${props => props.color};
-        opacity: .6;
+        opacity: .9;
         border-radius: 3px;
 
         @media(max-width: 1200px) {

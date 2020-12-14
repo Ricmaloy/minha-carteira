@@ -505,7 +505,7 @@ const Dashboard: React.FC = () => {
             : item.category === 'Vestuário' ? color = '#FF4040'
             : item.category === 'Lazer' ? color = '#FF9C28'
             : item.category === 'Salário' ? color = '#0F8645'
-            : item.category === 'Saude' ? color = '#22BADB'
+            : item.category === 'Farmácia' ? color = '#22BADB'
             : color = '#C05E02';
 
     
