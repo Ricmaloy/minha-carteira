@@ -74,12 +74,12 @@ export const Button = styled.button`
 
     border-radius: 5px;
 
-    opacity: .8;
+    background-color: #f7f7f7;
 
     transition: all .3s;
 
     &:hover {
-        opacity: 1;
+        background-color: #fff;
     }
 
     @media(max-width: 1000px) {

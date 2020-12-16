@@ -3,7 +3,7 @@ import logoImg from '../../assets/logo.svg';
 import Toggle from '../Toggle';
 
 import { Container, Header, LogImg, MenuContainer, MenuItemLink, MenuItemButton, Title, ToggleMenu, ThemeToggleFooter } from './styles';
-import { MdDashboard, MdArrowDownward, MdArrowUpward, MdExitToApp, MdMenu, MdClose} from 'react-icons/md';
+import { MdDashboard,MdAccountBalanceWallet ,MdArrowDownward, MdArrowUpward, MdExitToApp, MdMenu, MdClose} from 'react-icons/md';
 
 import { useAuth } from '../../hooks/auth';
 import { useTheme } from '../../hooks/theme';
@@ -44,6 +44,10 @@ const Aside: React.FC = () => {
                 <MenuItemLink href="/">
                     <MdDashboard/>
                     Dashboard
+                </MenuItemLink>
+                <MenuItemLink href="/createRegister">
+                    <MdAccountBalanceWallet/>
+                    Novo Registro
                 </MenuItemLink>
                 <MenuItemLink href="/list/entry-balance">
                     <MdArrowUpward/>
