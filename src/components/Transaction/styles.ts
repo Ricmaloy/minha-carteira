@@ -34,6 +34,10 @@ export const Container = styled.li`
     :hover {
         transform: translateX(5px);
     }
+
+    @media(max-width: 500px) {
+        margin: 0 10px;
+    }
 `;
 
 export const Date = styled.h2`
@@ -44,11 +48,19 @@ export const Date = styled.h2`
     @media(max-width: 1000px){
         font-size: 17px;
     }
+
+    @media(max-width: 500px) {
+        font-size: 13px;
+    }
 `;
 
 export const Description = styled.span`
     @media(max-width: 1200px){
         font-size: 14px;
+    }
+
+    @media(max-width: 500px) {
+        font-size: 11px;
     }
 `;
 
@@ -125,5 +137,9 @@ export const Cash = styled.h3<IAmountProps>`
 
     @media(max-width: 600px){
         width: 30%;
+    }
+
+    @media(max-width: 500px) {
+        font-size: 10px;
     }
 `;

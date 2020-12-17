@@ -43,23 +43,23 @@ const Aside: React.FC = () => {
             <MenuContainer>
                 <MenuItemLink href="/">
                     <MdDashboard/>
-                    Dashboard
+                    <span>Dashboard</span>
                 </MenuItemLink>
                 <MenuItemLink href="/createRegister">
                     <MdAccountBalanceWallet/>
-                    Novo Registro
+                    <span>Novo Registro</span>
                 </MenuItemLink>
                 <MenuItemLink href="/list/entry-balance">
                     <MdArrowUpward/>
-                    Entradas
+                    <span>Entradas</span>
                 </MenuItemLink>
                 <MenuItemLink href="/list/exit-balance">
                     <MdArrowDownward/>
-                    Saidas
+                    <span>Saidas</span>
                 </MenuItemLink>
                 <MenuItemButton onClick={signOut}>
                     <MdExitToApp/>
-                    Sair
+                    <span>Sair</span>
                 </MenuItemButton>
             </MenuContainer>
 

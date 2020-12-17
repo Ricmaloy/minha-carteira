@@ -50,6 +50,10 @@ export const SideLeft = styled.aside`
         padding-left: 16px;
         margin-bottom:10px;
     }
+
+    @media(max-width: 500px) {
+        padding: 30px 0 0 20px;
+    }
 `;
 
 export const LegendContainer = styled.ul`

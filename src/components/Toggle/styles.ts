@@ -9,6 +9,10 @@ export const Container = styled.div`
 
 export const ToggleLabel = styled.span`
     color: ${props => props.theme.colors.white};
+
+    @media(max-width: 600px){
+        display: none;
+    }
 `;
 
 export const ToggleSelector = styled(Switch).attrs< ReactSwitchProps >(

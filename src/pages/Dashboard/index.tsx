@@ -216,8 +216,6 @@ const Dashboard: React.FC = () => {
             }
         });
 
-        console.log(eventsCounter);
-
         return eventsCounter >= 9 ? `${eventsCounter}` : `0${eventsCounter}`;
 
     },[monthSelected, yearSelected]);

@@ -16,7 +16,7 @@ export const Container = styled.div<IContainerProps>`
 
     position: relative;
 
-    @media(max-width: 600px) {
+    /* @media(max-width: 600px) {
         padding-left: 7px;
         position: fixed;
         z-index: 2;
@@ -30,6 +30,16 @@ export const Container = styled.div<IContainerProps>`
             border: none;
             border-bottom: 1px solid ${props => props.theme.colors.gray};
         `};
+    } */
+
+    @media(max-width: 600px) {
+        width: 100%;
+
+        position: fixed;
+        left: 0;
+        bottom: 0;
+
+        z-index: 10;
     }
 `;
 
@@ -39,6 +49,10 @@ export const Header = styled.header`
 
     align-items: center;
     display: flex;
+
+    @media(max-width: 600px) {
+        display: none;
+    }
 `;
 
 export const LogImg = styled.img`
@@ -64,32 +78,68 @@ export const MenuContainer = styled.nav`
 
     display:flex;
     flex-direction: column;
+
+    @media(max-width: 600px) {
+        flex-direction: row;
+
+        margin-top: 0px;
+
+        justify-content: space-around;
+    }
 `;
 
 export const MenuItemLink = styled.a`
-    color: ${props => props.theme.colors.info};
     
-    text-decoration: none;
-    padding: 12px 0;
-    padding-left: 20px;
+        color: ${props => props.theme.colors.info};
+        
+        text-decoration: none;
+        padding: 12px 0;
+        padding-left: 20px;
 
-    display: flex;
-    align-items: center;
+        display: flex;
+        align-items: center;
+        transition: opacity .3s,
+                    padding-left .3s,
+                    background-color .3s;
 
-    transition: opacity .3s,
-                padding-left .3s,
-                background-color .3s;
+        &:hover {
+            opacity: .7;
+            padding-left: 30px;
+            border-right: 2px solid ${props => props.theme.colors.info};
+            background-color: ${props => props.theme.colors.backMenu};
 
-    &:hover {
-        opacity: .7;
-        padding-left: 30px;
-        border-right: 2px solid ${props => props.theme.colors.info};
-        background-color: ${props => props.theme.colors.backMenu};
+            @media(max-width: 600px) {
+                padding-left: 0px;
+                border-top: 2px solid ${props => props.theme.colors.info};      
+                border-right: none;
+
+                transform: translateY(-2px);
+            }
+        }
+
+    > span {
+        @media(max-width: 600px) {
+            display: none;
+            padding-left: 0;
+        }
     }
 
     > svg {
         font-size: 25px;
         margin-right: 5px;
+
+        @media(max-width: 600px) {
+            margin-right: 0;
+        }
+    }
+
+    @media(max-width: 600px) {
+        width: 20%;
+
+        padding-left: 0;
+
+        display: flex;
+        justify-content: center;
     }
 `;
 
@@ -112,11 +162,35 @@ export const MenuItemButton = styled.button`
     &:hover {
         opacity: .7;
         padding-left: 30px;
+
+        @media(max-width: 600px) {
+            padding-left: 0px;      
+            border-top: 2px solid ${props => props.theme.colors.info}; 
+        }
+    }
+
+    > span {
+        @media(max-width: 600px) {
+            display: none;
+        }
     }
 
     > svg {
         font-size: 25px;
         margin-right: 5px;
+
+        @media(max-width: 600px) {
+            margin-right: 0;
+        }
+    }
+
+    @media(max-width: 600px) {
+        width: 20%;
+
+        padding-left: 0;
+
+        display: flex;
+        justify-content: center;
     }
 `;
 

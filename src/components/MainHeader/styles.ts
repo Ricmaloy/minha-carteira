@@ -38,6 +38,14 @@ export const UserPhoto = styled.img`
     border-radius: 50%;
 `;
 
-export const Welcome = styled.h3``;
+export const Welcome = styled.h3`
+    @media(max-width: 500px) {
+        font-size: 16px;
+    }
+`;
 
-export const UserName = styled.span``;
+export const UserName = styled.span`
+    @media(max-width: 500px) {
+        font-size: 13px;
+    }
+`;

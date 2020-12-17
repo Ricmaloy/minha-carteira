@@ -10,16 +10,19 @@ export const Container = styled.div`
     padding: 30px 20px;
 
     border-radius: 5px;
+
+    @media(max-width: 470px) {
+        padding: 30px 10px;
+    }
 `;
 
 export const TransactionContent = styled.div`
     height: 400px;
     overflow-y: scroll;
 
-    padding-right: 16px;
 
     ::-webkit-scrollbar {
-        width: 10px;
+        width: 5px;
     }
 
     ::-webkit-scrollbar-thumb {
@@ -35,4 +38,8 @@ export const TransactionContent = styled.div`
 export const Title = styled.h2`
     padding-left: 16px;
     margin-bottom: 15px;
+
+    @media(max-width: 470px) {
+        padding-left: 6px;
+    }
 `;

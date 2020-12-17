@@ -48,6 +48,10 @@ export const Panel = styled.div`
         text-align: center;
         color: ${props => props.theme.colors.black};
     }
+
+    @media(max-width: 500px) {
+        display: none;
+    }
 `;
 
 export const Login = styled.div`
@@ -70,6 +74,14 @@ export const Login = styled.div`
         height: 50px;
         background-color: white;
         transform: rotate(45deg);
+
+        @media(max-width: 500px) {
+            display: none;
+        }
+    }
+
+    @media(max-width: 500px) {
+        width: 100%;
     }
 `;
 
@@ -81,6 +93,10 @@ export const LoginContent = styled.div`
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+
+    @media(max-width: 500px) {
+        margin: 0 40px;
+    }
 `;
 
 export const Logo = styled.div`
@@ -93,11 +109,20 @@ export const Logo = styled.div`
     > h2 {
         color: ${props => props.theme.colors.white};
         margin-right: 7px;
+    
+        @media(max-width: 500px) {
+            font-size: 17px;
+        }
     }
 
     > img {
         height: 40px;
         width: 40px;
+
+        @media(max-width: 500px) {
+            height: 30px;
+            width: 30px;
+        }
     }
 `;
 
@@ -113,7 +138,12 @@ export const Form = styled.form`
     span {
         font-size: 18px;
         letter-spacing: 1px;
+    
+        @media(max-width: 500px) {
+            font-size: 15px;
+        }
     }
+
 `;
 
 export const InputField = styled.div`
@@ -145,6 +175,10 @@ export const Credits = styled.p`
     font-size: 14px;
     margin-bottom: 8px;
     color: ${props => props.theme.colors.gray};
+
+    @media(max-width: 500px) {
+        font-size: 12px;
+    }
 `;
 
 

@@ -77,7 +77,7 @@ export const Container = styled.div<IContainerProps>`
 
     }
 
-    @media(max-width: 450px) {
+    @media(max-width: 500px) {
         width: 100%;
 
         > span {

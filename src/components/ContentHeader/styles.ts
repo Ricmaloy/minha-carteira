@@ -10,6 +10,10 @@ export const Container = styled.div`
     justify-content: space-between;
 
     margin-bottom: 25px;
+
+    @media(max-width: 470px) {
+        flex-direction: column-reverse;
+    }
 `;
 
 export const TitleContainer = styled.div<ITitleContainerProps>`
@@ -39,4 +43,10 @@ export const TitleContainer = styled.div<ITitleContainerProps>`
 
 export const Controllers = styled.div`
     display: flex;
+
+    @media(max-width: 470px) {
+        align-self: flex-end;
+
+        margin-bottom: 10px;
+    }
 `;
