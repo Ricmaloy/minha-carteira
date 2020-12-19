@@ -12,6 +12,7 @@ import TransactionsBox from '../../components/TransactionsBox';
 import RadarChartBox from '../../components/RadarChartBox';
 import CalendarBox from '../../components/CalendarBox';
 import RemindersNoteBox from '../../components/RemindersNoteBox';
+import BankCardsBox from '../../components/BankCardsBox';
 
 import { v4 as uuidv4 } from 'uuid';
 
@@ -21,6 +22,7 @@ import gains from '../../repositories/gains';
 import expenses from '../../repositories/expenses';
 import transactions from '../../repositories/transactions';
 import events from '../../repositories/events';
+import bankCards from '../../repositories/bankCards';
 
 import { Container, Content, Calendar } from './styles';
 
@@ -34,6 +36,10 @@ import happyImg from '../../assets/happy.svg';
 import grinningImg from '../../assets/grinning.svg';
 import sadImg from '../../assets/sad.svg';
 import flushedImg from '../../assets/flushed.svg';
+import NuBank from '../../assets/NuBank.svg';
+import BancoBrasil from '../../assets/BancoBrasil.svg';
+import MasterCard from '../../assets/MasterCard.svg';
+import MercadoLivre from '../../assets/MercadoLivre.svg';
 
 interface IData {
     id: string;
@@ -95,6 +101,35 @@ const Dashboard: React.FC = () => {
         }
 
     },[]);
+
+    const BankCards = useMemo(() => {
+
+        
+        return bankCards.map((card) => {
+
+            const logo = card.cardLogo === 'NuBank' ? NuBank :
+                         card.cardLogo === 'BancoBrasil' ? BancoBrasil :
+                         MercadoLivre;
+
+            const typeLogo = card.cardTypeLogo === 'MasterCard' ? MasterCard :
+                             ' ';
+                         
+
+            return {
+                name: card.name,
+                cardName: card.cardName,
+                current: card.current,
+                amount: card.amount,
+                account: card.account,
+                cardLogo: logo,
+                cardTypeLogo : typeLogo,
+                colorOne: card.colorOne,
+                colorTwo: card.colorTwo,
+            }
+        });
+        
+        //return bankCards;
+    }, []);
 
     const totalBudget = useMemo(() => {
         let totalExp: number = 0, 
@@ -615,6 +650,7 @@ const Dashboard: React.FC = () => {
 
                 <PieChartBox data={relationExpVsGains} freqData={relationRecurrentVsEventual} />
 
+                <BankCardsBox data={BankCards} />
 
                 <TransactionsBox>
                 {
