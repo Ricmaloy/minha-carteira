@@ -34,7 +34,9 @@ const SignIn: React.FC = () => {
                         <p>Entre agora mesmo</p>
                         <Form onSubmit={() => signIn(email,password)} >
                             <span>Email</span>
-                            <InputField>
+                            <InputField 
+                                color="#424242"
+                            >
                                 <Input
                                     required
                                     type="email"
@@ -42,7 +44,9 @@ const SignIn: React.FC = () => {
                                 />
                             </InputField>
                             <span>Senha</span>
-                            <InputField>
+                            <InputField
+                                color="#424242"
+                            >
                                 <Input
                                     required
                                     type="password"

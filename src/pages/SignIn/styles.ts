@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+interface IInputProps {
+    color: string;
+}
+
 export const Container = styled.div`
     height: 100vh;
 
@@ -72,7 +76,7 @@ export const Login = styled.div`
         left: -25px;
         width: 50px;
         height: 50px;
-        background-color: white;
+        background-color: transparent;
         transform: rotate(45deg);
 
         @media(max-width: 500px) {
@@ -146,7 +150,7 @@ export const Form = styled.form`
 
 `;
 
-export const InputField = styled.div`
+export const InputField = styled.div<IInputProps>`
 
     margin-bottom: 20px;
 
@@ -163,7 +167,7 @@ export const InputField = styled.div`
             transition: all .3s;
 
             background-color: ${props => props.theme.colors.warning};
-            background-color: #1594c3;
+            background-color: ${props => props.color};
     }
 
     &:hover::after {

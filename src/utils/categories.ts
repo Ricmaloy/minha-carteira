@@ -1,0 +1,1 @@
+export default ['Alimento', 'Lazer', 'Farmácia', 'Vestuário', 'Salário', 'Outro']
