@@ -49,6 +49,10 @@ const CreateRegister: React.FC = () => {
         setIsExit(!isExit);
     }
 
+    const test =() => {
+        console.log(isExit,registerTitle,registerDate,registerValue, registerCategory, registerFrequency, registerDescription)
+    }
+
     return (
         <Container>
             <Form>
@@ -129,7 +133,7 @@ const CreateRegister: React.FC = () => {
                     />
                 </Content>
 
-                <Button type="submit">Cadastrar</Button>
+                <Button onClick={test} type="submit">Cadastrar</Button>
             </Form>
 
         </Container>

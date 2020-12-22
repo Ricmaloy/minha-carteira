@@ -77,6 +77,9 @@ export const Content = styled.main`
 
     @media( max-width: 380px) {
         margin: 10px 0px;
+
+        width: 120%;
+        transform: translateX(-30px);
     }
 `;
 
@@ -129,6 +132,10 @@ export const Card = styled.div<IBankCardProps>`
     @media( max-width: 380px) {
         min-width: 270px;
         height: 180px;
+
+        &:first-child{
+            margin-left: 30px;
+        }
     }
 `;
 
