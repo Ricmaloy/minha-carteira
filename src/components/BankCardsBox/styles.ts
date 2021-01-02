@@ -31,7 +31,7 @@ export const Header = styled.header`
         height: 25px;
     }
 
-    @media( max-width: 380px) {
+    @media( max-width: 600px) {
         padding-bottom: 0px;
         padding-left: 0px;
     }   
@@ -75,11 +75,11 @@ export const Content = styled.main`
         margin: 20px 0px;
     }
 
-    @media( max-width: 380px) {
+    @media( max-width: 600px) {
         margin: 10px 0px;
 
-        width: 120%;
-        transform: translateX(-30px);
+        width: 98vw;
+        transform: translateX(-45px);
     }
 `;
 
@@ -119,7 +119,7 @@ export const Card = styled.div<IBankCardProps>`
         height: 240px;
     }
 
-    @media( max-width: 500px) {
+    @media( max-width: 600px) {
         min-width: 380px;
         height: 220px;
     }
@@ -129,7 +129,7 @@ export const Card = styled.div<IBankCardProps>`
         height: 210px;
     }
 
-    @media( max-width: 380px) {
+    @media( max-width: 600px) {
         min-width: 270px;
         height: 180px;
 
@@ -152,7 +152,7 @@ export const Upper = styled.div`
         align-items: center;
     
         > img {
-            @media( max-width: 380px) {
+            @media( max-width: 600px) {
                 width: 62px;
                 height: 38px;
             }
@@ -162,7 +162,7 @@ export const Upper = styled.div`
         > p {
             padding-left: 10px;
 
-            @media( max-width: 380px) {
+            @media( max-width: 600px) {
                 font-size: 9px;
             }
         }
@@ -174,7 +174,7 @@ export const Upper = styled.div`
     }
 
     > img {
-        @media( max-width: 380px) {
+        @media( max-width: 600px) {
             width: 32px;
             height: 21px;
         }
@@ -184,7 +184,7 @@ export const Upper = styled.div`
         margin: 10px 30px;
     }
 
-    @media( max-width: 380px) {
+    @media( max-width: 600px) {
         margin: 10px 20px;
     }
 `;
@@ -200,14 +200,14 @@ export const Lower = styled.div`
         margin: 10px 30px;
     }
 
-    @media( max-width: 380px) {
+    @media( max-width: 600px) {
         margin: 10px 20px;
     }
 `;
 
 export const Infos = styled.div`
 
-    @media( max-width: 380px) {
+    @media( max-width: 600px) {
         p {
             font-size: 10px;
         }
@@ -215,7 +215,7 @@ export const Infos = styled.div`
 `;
 
 export const Account = styled.div`
-    @media( max-width: 380px) {
+    @media( max-width: 600px) {
         p {
             font-size: 10px;
         }
