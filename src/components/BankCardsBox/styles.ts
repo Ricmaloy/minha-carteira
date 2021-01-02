@@ -78,7 +78,8 @@ export const Content = styled.main`
     @media( max-width: 600px) {
         margin: 10px 0px;
 
-        width: 98vw;
+        width: 120%;
+        width: 100vw;
         transform: translateX(-45px);
     }
 `;
@@ -119,7 +120,7 @@ export const Card = styled.div<IBankCardProps>`
         height: 240px;
     }
 
-    @media( max-width: 600px) {
+    @media( max-width: 500px) {
         min-width: 380px;
         height: 220px;
     }
@@ -134,7 +135,7 @@ export const Card = styled.div<IBankCardProps>`
         height: 180px;
 
         &:first-child{
-            margin-left: 30px;
+            margin-left: 30px; 
         }
     }
 `;
