@@ -79,6 +79,8 @@ const Dashboard: React.FC = () => {
                 uniqueYears.push(year);
             }
         });
+        
+        uniqueYears.sort((a,b) => b - a);
 
         return uniqueYears.map(year => {
             return {
@@ -440,7 +442,7 @@ const Dashboard: React.FC = () => {
                     try {
                         amountOutput += Number(expense.amount)
                     } catch {
-                        throw new Error('amountOutput is invalid. amountOutput must be valid number!');
+                        throw new Error('amount Output is invalid. amountOutput must be valid number!');
                     }
                 }
             });
@@ -453,10 +455,9 @@ const Dashboard: React.FC = () => {
             }
         })
         .filter(item => {
-            const currentMonth = new Date().getMonth();
             const currentYear = new Date().getFullYear();
 
-            return (yearSelected === currentYear && item.monthNumber <= currentMonth) || (yearSelected < currentYear)
+            return (yearSelected === currentYear) || (yearSelected < currentYear)
         });
     },[yearSelected]);
 
@@ -653,7 +654,7 @@ const Dashboard: React.FC = () => {
                 <BankCardsBox data={BankCards} />
 
                 <TransactionsBox>
-                {
+                {   
                     allData.map( item => (
                         <Transactions
                             key={item.id}

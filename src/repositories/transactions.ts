@@ -76,4 +76,21 @@ export default [
     {"description": "Telefone",       "isGain":"true","amount":"1.99", "type":"saída","frequency":"recorrente","category":"Lazer","date":"2020-12-23"},
     {"description": "Telefone",       "isGain":"false","amount":"1.99", "type":"saída","frequency":"recorrente","category":"Alimento","date":"2020-12-23"},
     {"description":"Plano de Saúde",  "isGain":"true","amount":"1.00","type":"saída","frequency":"recorrente","category":"Outro","date":"2020-12-23"},
+
+    {"description":"Energia elétrica","isGain":"true","amount":"1.55","type":"saída","frequency":"recorrente","category":"Farmácia","date":"2021-01-10"},
+    {"description":"Água",            "isGain":"true","amount":"1.55", "type":"saída","frequency":"recorrente","category":"Vestuário","date":"2021-01-15"},
+    {"description": "Telefone",       "isGain":"false","amount":"1.99", "type":"saída","frequency":"recorrente","category":"Lazer","date":"2021-01-23"},
+    {"description": "Telefone",       "isGain":"true","amount":"1.99", "type":"saída","frequency":"recorrente","category":"Alimento","date":"2021-01-23"},
+    {"description":"Plano de Saúde",  "isGain":"true","amount":"1.00","type":"saída","frequency":"recorrente","category":"Outro","date":"2021-01-23"},
+    {"description":"Energia elétrica","isGain":"false","amount":"1.55","type":"saída","frequency":"recorrente","category":"Farmácia","date":"2021-01-10"},
+    {"description":"Água",            "isGain":"true","amount":"1.55", "type":"saída","frequency":"recorrente","category":"Vestuário","date":"2021-01-15"},
+    {"description": "Telefone",       "isGain":"true","amount":"1.99", "type":"saída","frequency":"recorrente","category":"Lazer","date":"2021-01-23"},
+    {"description": "Telefone",       "isGain":"false","amount":"1.99", "type":"saída","frequency":"recorrente","category":"Alimento","date":"2021-01-23"},
+    {"description":"Plano de Saúde",  "isGain":"true","amount":"1.00","type":"saída","frequency":"recorrente","category":"Outro","date":"2021-01-23"},
+
+    {"description":"Energia elétrica","isGain":"false","amount":"2.55","type":"saída","frequency":"recorrente","category":"Farmácia","date":"2021-02-10"},
+    {"description":"Água",            "isGain":"true","amount":"1.55", "type":"saída","frequency":"recorrente","category":"Vestuário","date":"2021-02-15"},
+    {"description": "Telefone",       "isGain":"true","amount":"2.99", "type":"saída","frequency":"recorrente","category":"Lazer","date":"2021-02-23"},
+    {"description": "Telefone",       "isGain":"false","amount":"1.99", "type":"saída","frequency":"recorrente","category":"Alimento","date":"2021-02-23"},
+    {"description":"Plano de Saúde",  "isGain":"true","amount":"2.00","type":"saída","frequency":"recorrente","category":"Outro","date":"2021-02-23"},
 ]

@@ -12,4 +12,12 @@ export default [
   { "description": "Saldo Betway","amount": "50.00",   "type": "entrada", "frequency": "eventual","category":"Saude",   "date": "2019-11-29" },
   { "description": "Salário",     "amount": "150.00",  "type": "entrada", "frequency": "recorrente","category":"Saude", "date": "2020-12-10" },
   { "description": "frella ASCII","amount": "150.00",  "type": "entrada", "frequency": "eventual",  "category":"Saude", "date": "2020-12-10" },
+  { "description": "Salário",     "amount": "2500.00", "type": "entrada", "frequency": "recorrente","category":"Saude", "date": "2021-01-10" },
+  { "description": "Saldo Betway","amount": "50.00",   "type": "entrada", "frequency": "eventual","category":"Saude",   "date": "2021-01-29" },
+  { "description": "Salário",     "amount": "150.00",  "type": "entrada", "frequency": "recorrente","category":"Saude", "date": "2021-01-10" },
+  { "description": "frella ASCII","amount": "150.00",  "type": "entrada", "frequency": "eventual",  "category":"Saude", "date": "2021-01-10" },
+  { "description": "Teste Feb",   "amount": "150.00",  "type": "entrada", "frequency": "eventual",  "category":"Saude", "date": "2021-02-10" },
+  { "description": "Salário",     "amount": "150.00",  "type": "entrada", "frequency": "recorrente","category":"Saude", "date": "2021-02-10" },
+  { "description": "frella ASCII","amount": "150.00",  "type": "entrada", "frequency": "eventual",  "category":"Saude", "date": "2021-02-10" },
+  { "description": "Teste Feb",   "amount": "150.00",  "type": "entrada", "frequency": "eventual",  "category":"Saude", "date": "2021-02-10" },
 ]

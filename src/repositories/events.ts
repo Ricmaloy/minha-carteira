@@ -13,4 +13,9 @@ export default [
   {"description":"Energia elétrica", "date":"2020-12-12"},
   {"description":"Energia elétrica", "date":"2020-12-12"},
   {"description":"Energia elétrica", "date":"2020-12-12"},
+  {"description":"Energia elétrica", "date":"2021-01-14"},
+  {"description":"Energia elétrica", "date":"2021-01-18"},
+  {"description":"Energia elétrica", "date":"2021-02-18"},
+  {"description":"Energia elétrica", "date":"2021-03-18"},
+  {"description":"Energia elétrica", "date":"2021-04-18"},
 ]
