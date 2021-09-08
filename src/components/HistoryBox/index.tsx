@@ -34,7 +34,7 @@ const HistoryBox: React.FC<IHistoryBoxProps> = ( {
             </LegendContainer>
         </Header>
         <ChartContainer>
-            <ResponsiveContainer>
+            <ResponsiveContainer width="100%" aspect={3}>
                 <LineChart data={data} margin={{top: 5, right: 20, left: 20, bottom: 5 }}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#cecece" />
                     <XAxis dataKey="month" stroke="#cecece"/>
